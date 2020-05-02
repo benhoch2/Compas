@@ -10186,6 +10186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR_RigidBodyFPSController
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: b7d082484c9a2cb4aace5ef120ddbd0d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b7d082484c9a2cb4aace5ef120ddbd0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -79151,6 +79155,8 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+  RotationSpeed: 5
+  disableMouseTurnInVR: 1
 --- !u!1 &1996025278
 GameObject:
   m_ObjectHideFlags: 0

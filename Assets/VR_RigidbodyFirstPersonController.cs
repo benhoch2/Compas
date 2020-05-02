@@ -81,14 +81,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
-
+        public float RotationSpeed = 100f;
+        public bool disableMouseTurnInVR = false;
 
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
-
+        private bool m_mouseTurnDisabled = false;
 
         public Vector3 Velocity
         {
@@ -130,7 +131,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
+            //BENH: Add jump support with right touch controller key one
+            if (!m_Jump && (/*OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) ||*/ CrossPlatformInputManager.GetButtonDown("Jump")))
             {
                 m_Jump = true;
             }
@@ -211,15 +213,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector2 GetInput()
         {
-            /*
+            
+            
             Vector2 input = new Vector2
                 {
                     x = CrossPlatformInputManager.GetAxis("Horizontal"),
                     y = CrossPlatformInputManager.GetAxis("Vertical")
                 };
-            */
-            OVRInput.
-			movementSettings.UpdateDesiredTargetSpeed(input);
+            
+            //BENH: Add support horizontal/vertical movement with right touch controller
+            //input += OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
+            
+            movementSettings.UpdateDesiredTargetSpeed(input);
             return input;
         }
 
@@ -232,14 +237,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // get the rotation before it's changed
             float oldYRotation = transform.eulerAngles.y;
 
-            mouseLook.LookRotation (transform, cam.transform);
 
+            if (!m_mouseTurnDisabled)
+            {
+                mouseLook.LookRotation(transform, cam.transform);
+            }
+
+            float yRot = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch).x * RotationSpeed;
+            if (disableMouseTurnInVR && yRot > 0.01f)
+            {
+                m_mouseTurnDisabled = true;
+            }
+            //BENH: right hand turn
+            Quaternion xRotQuat = Quaternion.Euler(0f, yRot, 0f);
+            transform.localRotation *= xRotQuat;
+            
             if (m_IsGrounded || advancedSettings.airControl)
             {
                 // Rotate the rigidbody velocity to match the new direction that the character is looking
                 Quaternion velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
                 m_RigidBody.velocity = velRotation*m_RigidBody.velocity;
             }
+            
         }
 
         /// sphere cast down just beyond the bottom of the capsule to see if the capsule is colliding round the bottom
