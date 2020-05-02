@@ -244,7 +244,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             float yRot = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch).x * RotationSpeed;
-            if (disableMouseTurnInVR && yRot > 0.01f)
+            if (disableMouseTurnInVR && Mathf.Abs(yRot) > 0.01f)
             {
                 m_mouseTurnDisabled = true;
             }
