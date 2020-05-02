@@ -248,6 +248,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_mouseTurnDisabled = true;
             }
+            
             //BENH: right hand turn
             Quaternion xRotQuat = Quaternion.Euler(0f, yRot, 0f);
             transform.localRotation *= xRotQuat;
