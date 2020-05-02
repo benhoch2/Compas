@@ -79633,9 +79633,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89c9df62828ca469d26f15042a8dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftRocket: {fileID: 1445144048}
-  rightRocket: {fileID: 1441957040}
+  leftRocket: {fileID: 1445144046}
+  rightRocket: {fileID: 1441957038}
   localAvatar: {fileID: 1134739109}
+  rb: {fileID: 1991542692}
+  thrustFactor: 100
+--- !u!54 &1991542692 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5400000, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 162340746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1996025278
 GameObject:
   m_ObjectHideFlags: 0
