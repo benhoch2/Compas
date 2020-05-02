@@ -33,7 +33,6 @@ public class RocketManager : MonoBehaviour
     private void ApplyRocketForce()
     {
         //add force
-        //rigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
         rb.AddForce(leftRocket.transform.forward * leftThrust * thrustFactor);
         rb.AddForce(leftRocket.transform.forward * rightThrust * thrustFactor);
     }
