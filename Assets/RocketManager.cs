@@ -23,11 +23,26 @@ public class RocketManager : MonoBehaviour
     {
         GetInput();
         ToggleRockets();
+        if (rocketsEnabled)
+        {
+            UpdateRockets();
+        }
+        
+    }
+
+    private void UpdateRockets()
+    {
+        leftRocket.GetComponent<Rocket>().Thrust(leftThrust);
+        rightRocket.GetComponent<Rocket>().Thrust(rightThrust);
     }
 
     private void FixedUpdate()
     {
-        ApplyRocketForce();
+        if (rocketsEnabled)
+        {
+            ApplyRocketForce();
+        }
+
     }
 
     private void ApplyRocketForce()
