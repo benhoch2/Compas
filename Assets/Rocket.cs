@@ -16,11 +16,6 @@ public class Rocket : MonoBehaviour
         renderer = GetComponentInChildren<Renderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Thrust(float strength)
     {
         renderer.material.color = Color.red * strength;

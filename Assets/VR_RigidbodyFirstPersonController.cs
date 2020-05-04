@@ -132,7 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             RotateView();
 
             //BENH: Add jump support with right touch controller key one
-            if (!m_Jump && (/*OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) ||*/ CrossPlatformInputManager.GetButtonDown("Jump")))
+            if (!m_Jump && (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || CrossPlatformInputManager.GetButtonDown("Jump")))
             {
                 m_Jump = true;
             }
