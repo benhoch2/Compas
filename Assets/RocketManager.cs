@@ -10,6 +10,7 @@ public class RocketManager : MonoBehaviour
     [SerializeField] OvrAvatar localAvatar;
     [SerializeField] Rigidbody rb;
     [SerializeField] float thrustFactor;
+    [SerializeField] ForceMode thrustForceMode;
 
     bool leftIndex, rightIndex, leftHand, rightHand;
     float leftThrust, rightThrust;
@@ -48,8 +49,8 @@ public class RocketManager : MonoBehaviour
     private void ApplyRocketForce()
     {
         //add force
-        rb.AddForce(leftRocket.transform.forward * leftThrust * thrustFactor);
-        rb.AddForce(leftRocket.transform.forward * rightThrust * thrustFactor);
+        rb.AddForce(leftRocket.transform.forward * leftThrust * thrustFactor, thrustForceMode);
+        rb.AddForce(leftRocket.transform.forward * rightThrust * thrustFactor, thrustForceMode);
     }
 
     private void ToggleRockets()

@@ -10404,6 +10404,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3655137702542911180, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674556557151885592, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674556559229388418, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 5580091541027672963, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
         type: 3}
       propertyPath: m_IsActive
@@ -33745,24 +33760,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 510e8b094d51c0c448a1f47f52b71413, type: 3}
---- !u!1 &740782665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3655137702542292278, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
-    type: 3}
-  m_PrefabInstance: {fileID: 162340746}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &740782669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740782665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea753f6d3f32274981ab85f1398d9ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &743504398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 17cce87b115d88844b71e6ace058187f,
@@ -79874,6 +79871,7 @@ MonoBehaviour:
   localAvatar: {fileID: 1134739109}
   rb: {fileID: 1991542692}
   thrustFactor: 50
+  thrustForceMode: 0
 --- !u!54 &1991542692 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5400000, guid: b7d082484c9a2cb4aace5ef120ddbd0d,
@@ -85321,17 +85319,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: cfa852edfef644fb086917ff800739f8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.00020000004
+      value: 0.0002152
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cfa852edfef644fb086917ff800739f8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.00020000007
+      value: 0.0002152
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cfa852edfef644fb086917ff800739f8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.00020000011
+      value: 0.0002152
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: cfa852edfef644fb086917ff800739f8,
         type: 3}
